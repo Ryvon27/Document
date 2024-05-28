@@ -1,0 +1,61 @@
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+
+import random
+
+list = [rock, paper, scissors]
+comp = random.randint(0,2)
+user = int(input("Gunakan 0 untuk Batu, 1 untuk Kertas dan 2 untuk Gunting : "))
+
+print("Computer Choice")
+print(list [comp])
+print("Your choice")
+print(list[user])
+
+if user >= 3 or user < 0:
+    print(f"Anda mengeluarkan {user} harap masaukkan angka antar 0 - 2")
+
+# Rock and paper condition
+elif user == 0 and comp == 1:
+    print(f"Anda kalah, silahkan coba lagi.")
+elif user == 1 and comp == 0 :
+    print(f"Selamat Anda Menang.")
+
+# Paper and Scissors condition    
+elif user == 1 and comp == 2:
+    print("Anda kalah, silahkan coba lagi.")
+elif user == 2 and comp == 1:
+    print("Selamt Anda Menang.")
+
+# Rock and Scissors condition
+elif user == 0 and comp == 2:
+    print("Selamt Anda Menang.")
+elif user == 0 and comp == 2:
+    print("Anda kalah, silahkan coba lagi.")
+
+elif user == comp:
+    print("Yahh seri")
