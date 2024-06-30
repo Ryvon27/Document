@@ -1,68 +1,16 @@
 import random
+from Hangman_logo import logo, stages
+from Hangman_words import word_list
 
-stages = ['''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
 
-word_list = ["najib", "ochi", "michi","jicul"]
+
+
 chosen_word = random.choice(word_list)
 word_length = len(chosen_word)
 
 #Testing code
 print(f'Pssst, the solution is {chosen_word}.')
+print(logo)
 
 
 display = []
@@ -84,14 +32,20 @@ while not end_of_game:
             display[position] = letter
     if guess not in chosen_word:
         lives -= 1
+        print(f"you are guessing '{guess}' its not the answer")
         
         if lives == 0:
             end_of_game = True
             print("Game end, You lost")
     print(display)
 
+    if guess in display:
+        print(f"You already guess {guess}")
+
     if "_" not in display:
         end_of_game = True
         print("You win!")
-
+        print(f"The answer is {chosen_word}")
+        
     print(stages[lives])
+    
